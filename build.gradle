@@ -1,22 +1,29 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
-        classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}
 
 repositories {
     mavenCentral()
 }
-
-sourceSets.main.resources.srcDirs = ["src/resources"]
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'

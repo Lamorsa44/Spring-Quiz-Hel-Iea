@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 public class Controller {
-
     private final QuizService quizService;
     private final MyUserService myUserService;
 
